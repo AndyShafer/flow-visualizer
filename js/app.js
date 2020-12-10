@@ -18,7 +18,14 @@ var App = function (_React$Component) {
 
 		var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
-		_this.state = {};
+		_this.state = {
+			graph: {
+				nodes: [{ id: 0, x: 100, y: 100 }, { id: 1, x: 300, y: 100 }],
+				adj: [[{ id: 1, cap: 5 }], [{ id: 0, cap: 5 }]],
+				source: 0,
+				sink: 1
+			}
+		};
 		return _this;
 	}
 
@@ -43,7 +50,7 @@ var App = function (_React$Component) {
 					React.createElement(
 						"div",
 						{ className: "col" },
-						React.createElement(Display, null)
+						React.createElement(Display, { graph: this.state.graph })
 					)
 				),
 				React.createElement(

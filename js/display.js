@@ -21,9 +21,25 @@ var Display = function (_React$Component) {
 	}
 
 	_createClass(Display, [{
+		key: "drawGraph",
+		value: function drawGraph() {
+			return React.createElement(
+				React.Fragment,
+				null,
+				this.props.graph.nodes.map(function (node) {
+					return React.createElement("circle", { key: node.id, cx: node.x, cy: node.y,
+						r: "10", strokeWidth: "2", stroke: "black", fill: "gray" });
+				})
+			);
+		}
+	}, {
 		key: "render",
 		value: function render() {
-			return React.createElement("svg", { id: "display", width: "1080", height: "600", style: { border: '3px solid #000000' } });
+			return React.createElement(
+				"svg",
+				{ id: "display", width: "1080", height: "600", style: { border: '3px solid #000000' } },
+				this.drawGraph()
+			);
 		}
 	}]);
 
